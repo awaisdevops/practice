@@ -8,7 +8,7 @@ spec:
   # NodePort type makes it accessible from your host machine via Minikube's IP
   type: ClusterIP
   ports:
-  - port: 80       # Port the Service listens on (internal cluster access)
+  - port: 9090       # Port the Service listens on (internal cluster access)
     targetPort: 80 # Port the container is listening on (from the Deployment)    
   selector:
     app: apache     # Matches the 'app: nginx' label in the Deployment template
