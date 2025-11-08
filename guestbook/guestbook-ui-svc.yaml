@@ -3,14 +3,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-service
+  name: apache-service
 spec:
   # NodePort type makes it accessible from your host machine via Minikube's IP
-  type: NodePort
+  type: ClusterIP
   ports:
   - port: 80       # Port the Service listens on (internal cluster access)
-    targetPort: 80 # Port the container is listening on (from the Deployment)
-    # The external port for Minikube access (must be between 30000-32767)
-    nodePort: 30866 
+    targetPort: 80 # Port the container is listening on (from the Deployment)    
   selector:
-    app: nginx     # Matches the 'app: nginx' label in the Deployment template
+    app: apache     # Matches the 'app: nginx' label in the Deployment template
